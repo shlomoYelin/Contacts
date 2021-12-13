@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Contacts</h2>
+        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Phone number</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>House number</th>
+                    <th>Apartment number</th>
+                    <th></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <!--<tr>
+                    <td>Firstname</td>
+                    <td>Lastname</td>
+                    <td>Phone Number</td>
+                    <td>City</td>
+                    <td>Street</td>
+                    <td>Apartment number</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>-->
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add contact</button>
+       
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="add_contact_form">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="EinputFirstname" placeholder="First name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="EinputLastName" placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="tel" class="form-control" id="Einputtel" placeholder="Phone number">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="EinputCity" placeholder="City">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="EinputStreetName" placeholder="Street name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="EinputHouseNumber" placeholder="House number">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="EinputApartmentNumber" placeholder="Apartment number">
+                                </div>
+                            </div>
+                            
+                            <button onclick="SetData()" type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="open_edit_model" type="button" style="visibility: hidden;" class="" data-toggle="modal" data-target="#Edit_model" data-whatever="@mdo">Edit contact</button>
+
+    <div class="modal fade" id="Edit_model" tabindex="-1" role="dialog"  >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit contact</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit_contact_form">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputFirstname" placeholder="First name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" id="inputtel" placeholder="Phone number">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputCity" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputStreetName" placeholder="Street name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputHouseNumber" placeholder="House number">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputApartmentNumber" placeholder="Apartment number">
+                            </div>
+                        </div>
+                        <input type="hidden" value="" id="ContactID" />
+                        <button onclick="UpdateData()" type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/script.js"></script>
+</html>
