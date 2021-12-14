@@ -59,9 +59,7 @@ function Add_tr(First_name, Last_name, Phone_number, City, Street, House_number,
 }
 
 
-document.querySelector('#add_contact_form').addEventListener('submit', (e) => {
-    const formData = new FormData(e.target);
-   });
+
 
 
 function Get_contact(ContactID) {
