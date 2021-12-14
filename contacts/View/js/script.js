@@ -1,24 +1,26 @@
 ﻿
+
 Page_load();
 
 function Page_load() {
-$.ajax({
-    url: "/api/Contacts",
-    type: "GET",
-    dataType: "text",
-    contentType: "application/json; charset=utf-8",
-    success: function (data) {
-        if (data == 'invalid') {
-            console.log('error');
+    $.ajax({
+        url: "/api/Contacts",
+        type: "GET",
+        dataType: "text",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data == 'invalid') {
+                console.log('error');
+            }
+            else {
+                Fill_data(JSON.parse(JSON.parse(data)));
+                $('#loading').hide();
+            }
+        },
+        error: function (e) {
+            console.log('error ' + e);
         }
-        else {
-            Fill_data(JSON.parse(JSON.parse(data)));
-        }
-    },
-    error: function (e) {
-        console.log('error ' + e);
-    }
-});
+    });
 
 }
 
@@ -36,7 +38,7 @@ function Fill_data(data) {
 }
 
 
-function Add_tr(First_name, Last_name, Phone_number, City, Street, House_number, Apartment_number,ContactID) {
+function Add_tr(First_name, Last_name, Phone_number, City, Street, House_number, Apartment_number, ContactID) {
     let html = `
     <tr>
         <td>${First_name}</td>

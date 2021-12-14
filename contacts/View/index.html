@@ -6,11 +6,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/Style.css" />
 </head>
 <body>
+    <div id="loading">
+        <h1 id="loading-h1">Loading...</h1>
+    </div>
+
     <div class="container">
         <h2>Contacts</h2>
-        
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -49,7 +53,7 @@
             </tbody>
         </table>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add contact</button>
-       
+
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -90,7 +94,7 @@
                                     <input type="text" class="form-control" id="EinputApartmentNumber" placeholder="Apartment number">
                                 </div>
                             </div>
-                            
+
                             <button onclick="SetData()" type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
                         </form>
                     </div>
@@ -103,7 +107,7 @@
     </div>
     <button id="open_edit_model" type="button" style="visibility: hidden;" class="" data-toggle="modal" data-target="#Edit_model" data-whatever="@mdo">Edit contact</button>
 
-    <div class="modal fade" id="Edit_model" tabindex="-1" role="dialog"  >
+    <div class="modal fade" id="Edit_model" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
